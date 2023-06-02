@@ -1,0 +1,147 @@
+package com.codecharlan.booklibrary;
+
+import com.codecharlan.booklibrary.enums.Gender;
+import com.codecharlan.booklibrary.enums.Role;
+import com.codecharlan.booklibrary.repository.Book;
+import com.codecharlan.booklibrary.repository.Library;
+import com.codecharlan.booklibrary.service.StudentImpl;
+import com.codecharlan.booklibrary.service.TeacherImpl;
+import com.codecharlan.booklibrary.subclass.Date;
+import com.codecharlan.booklibrary.subclass.LibraryCard;
+
+public class BookLibraryApplication {
+
+    public static void main(String[] args) {
+        Date date = new Date(22, 05, 1997);
+        Date employeeHireDate = new Date(27, 04, 1996);
+        Date studentTakeBookDate = new Date(12, 03, 2023);
+        Date studentReturnBookDate = new Date(02, 04, 2023);
+        Date teacherTakeBookDate = new Date(15, 05, 2023);
+        Date teacherReturnBookDate = new Date(3, 06, 2023);
+        LibraryCard studentCard = new LibraryCard("DecaSchool", "Adaoma", "A12345", "rtobe@gmail.com", "07034567890", studentTakeBookDate, studentReturnBookDate);
+        LibraryCard teacherCard = new LibraryCard("DecaSchool", "Ifeoma", "A67890", "ifyone@gmail.com", "07034466772", teacherTakeBookDate, teacherReturnBookDate);
+//        Book book = new Book("Properties of Matter", "A.A.Juliet", "J.J Thaut Ltd", 000 - 2345, "Science");
+        Book book = Book.getInstance();
+        Students seniorStudent = new Students(studentCard, Role.SENIOR_STUDENT, Gender.FEMALE);
+        Students juniorStudent = new Students(studentCard, Role.JUNIOR_STUDENT, Gender.MALE);
+        Teacher teacher = new Teacher(teacherCard, employeeHireDate, Role.TEACHER, Gender.FEMALE);
+        Librarian librarian = new Librarian("Tommy", "R345678", "08086754356", "No 3, AnchorWay", new Date(4, 6, 1997), new Date(5, 7, 2023));
+        StudentImpl studentimpl = new StudentImpl();
+        TeacherImpl teacherimpl = new TeacherImpl();
+        Library library = Library.getInstance();
+
+        System.out.println("                                     ");
+        System.out.println(".......Before Adding Books ..........");
+        System.out.println("                                     ");
+
+        System.out.println(library.getBooksAvailable());
+        System.out.println(library.getBooksAvailable().size());
+        System.out.println(library.getBooksAvailable().values());
+
+
+        System.out.println("                                     ");
+        System.out.println(".......Adding Books ...........");
+        System.out.println("                                     ");
+
+        System.out.println(librarian.addBook(new Book("Intro to Java", "J.J. Abu", "Amazon Publiser", 000 - 4562, "Programming"), 2, Role.LIBRARIAN));
+
+        System.out.println(library.getBooksAvailable());
+        System.out.println(library.getBooksAvailable().size());
+        System.out.println(library.getBooksAvailable().values());
+
+        System.out.println(librarian.addBook(new Book("Basic principle of Learning", "A.J. Kin", "Amazon Publiser", 000 - 4902, "Education"), 4, Role.LIBRARIAN));
+        System.out.println(library.getBooksAvailable());
+        System.out.println(library.getBooksAvailable().size());
+        System.out.println(library.getBooksAvailable().values());
+
+        System.out.println(librarian.addBook(book, 7, Role.LIBRARIAN));
+
+        System.out.println(library.getBooksAvailable());
+        System.out.println(library.getBooksAvailable().size());
+        System.out.println(library.getBooksAvailable().values());
+
+        System.out.println("                                     ");
+        System.out.println(".......For Priority Queue ...........");
+        System.out.println("                                     ");
+
+        System.out.println(library.getBooksAvailable());
+        System.out.println(library.getBooksAvailable().size());
+        System.out.println(library.getBooksAvailable().values());
+
+        System.out.println(".......Books taken away from library after request ...........");
+        System.out.println(studentimpl.priorityRequestBook(studentCard, book, Role.JUNIOR_STUDENT));
+        System.out.println(teacherimpl.priorityRequestBook(teacherCard, book, Role.TEACHER));
+        System.out.println(studentimpl.priorityRequestBook(studentCard, book, Role.SENIOR_STUDENT));
+
+
+        System.out.println("..Get it first ..taken away from queue");
+        System.out.println(librarian.givePriorityBook(Role.LIBRARIAN));
+
+        System.out.println(library.getBooksAvailable());
+        System.out.println(library.getBooksAvailable().size());
+        System.out.println(library.getBooksAvailable().values());
+
+        System.out.println("..Get it second ..taken away from queue");
+        System.out.println(librarian.givePriorityBook(Role.LIBRARIAN));
+
+        System.out.println("..Get it third ..taken away from queue");
+        System.out.println(librarian.givePriorityBook(Role.LIBRARIAN));
+
+
+        System.out.println(library.getBooksAvailable());
+        System.out.println(library.getBooksAvailable().size());
+
+        System.out.println(".......Books Remaining in Library before FIFO...........");
+        System.out.println(library.getBooksAvailable().values());
+
+
+        System.out.println("                                     ");
+        System.out.println(".......For Queue (FIFO)...........");
+        System.out.println("                                     ");
+
+        System.out.println(".......Empty Queue + Books Remaining in Library...........");
+        System.out.println(book.getQueue());
+        System.out.println(book.getQueue().size());
+        System.out.println(library.getBooksAvailable().values());
+
+        System.out.println(studentimpl.queueRequestBook(studentCard, book, Role.JUNIOR_STUDENT));  // junior student
+
+        System.out.println(".......Taken away from the library after request...........");
+        System.out.println("                                     ");
+
+        System.out.println(book.getQueue());
+        System.out.println(book.getQueue().size());
+        System.out.println(library.getBooksAvailable().values());
+
+        System.out.println(teacherimpl.queueRequestBook(teacherCard, book, Role.TEACHER));
+
+        System.out.println(book.getQueue());
+        System.out.println(book.getQueue().size());
+        System.out.println(library.getBooksAvailable().values());
+
+        System.out.println(studentimpl.queueRequestBook(studentCard, book, Role.SENIOR_STUDENT));  // senior student
+
+        System.out.println(book.getQueue());
+        System.out.println(book.getQueue().size());
+        System.out.println(library.getBooksAvailable().values());
+
+
+        System.out.println("                                                   ");
+        System.out.println("....... Response Message from Librarian .....Taken away from the queue after disbursal......");
+
+        System.out.println(librarian.giveQueueBook(Role.SENIOR_STUDENT, book));
+        System.out.println(librarian.giveQueueBook(Role.JUNIOR_STUDENT, book));
+        System.out.println(librarian.giveQueueBook(Role.TEACHER, book));
+
+        System.out.println("                                     ");
+        System.out.println("....... Queue Empty ...........");
+
+        System.out.println(book.getQueue());
+        System.out.println(book.getQueue().size());
+
+        System.out.println("....... Remaining book in the library ...........");
+        System.out.println(library.getBooksAvailable().values());
+
+    }
+
+}
