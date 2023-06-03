@@ -17,7 +17,6 @@ class TeacherImplTest {
     Date studentReturnBookDate;
     Library library;
     Book book;
-
     LibraryCard studentCard;
     Role role;
     LibraryCard teacherCard;
@@ -50,6 +49,7 @@ class TeacherImplTest {
         Assertions.assertEquals(expected, actual);
         Assertions.assertTrue(library.getBooksAvailable().containsKey(String.valueOf(book)));
         Assertions.assertTrue(library.getBooksAvailable().get(String.valueOf(book)) > 0);
+        Assertions.assertEquals(library.getBooksAvailable().get(String.valueOf(book)), 6);
     }
 
     @Test
@@ -60,5 +60,6 @@ class TeacherImplTest {
         Assertions.assertEquals(expected, actual);
         Assertions.assertTrue(library.getBooksAvailable().containsKey(String.valueOf(book)));
         Assertions.assertTrue(library.getBooksAvailable().get(String.valueOf(book)) > 0);
+        Assertions.assertEquals(library.getBooksAvailable().get(String.valueOf(book)), 6);
     }
 }

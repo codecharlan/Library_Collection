@@ -28,20 +28,20 @@ public class Librarian extends Employee {
             if (book.getPriorityQueue().isEmpty()) {
                 return "No books requested";
             }
-            Book request = book.getPriorityQueue().poll();
-            Role person = request.getRole();
+            Book getRequestFromTheQueue = book.getPriorityQueue().poll();
+            Role roleOfPersonInQueue = getRequestFromTheQueue.getRole();
 
-            if (person.equals(Role.TEACHER)) {
+            if (roleOfPersonInQueue.equals(Role.TEACHER)) {
                 book.getPriorityQueue().remove(Role.TEACHER);
                 return book + " taken by a Teacher";
             }
 
-            if (person.equals(Role.SENIOR_STUDENT)) {
+            if (roleOfPersonInQueue.equals(Role.SENIOR_STUDENT)) {
                 book.getPriorityQueue().remove(Role.SENIOR_STUDENT);
                 return book + " taken by a Senior Student";
             }
 
-            if (person.equals(Role.JUNIOR_STUDENT)) {
+            if (roleOfPersonInQueue.equals(Role.JUNIOR_STUDENT)) {
                 book.getPriorityQueue().remove(Role.JUNIOR_STUDENT);
                 return book + "taken by a Junior Student";
             }
