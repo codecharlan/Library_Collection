@@ -5,15 +5,14 @@ import com.codecharlan.booklibrary.enums.Role;
 import com.codecharlan.booklibrary.subclass.Date;
 import com.codecharlan.booklibrary.subclass.LibraryCard;
 
-public class Teacher {
+public class Teacher extends Employee{
     private LibraryCard teacherCard;
-    private Date employeeHireDate;
     private Role staff;
     private Gender gender;
 
-    public Teacher(LibraryCard teacherCard, Date employeeHireDate, Role staff, Gender gender) {
+    public Teacher(String employeeName, String employeeId, String employeePhoneNumber, String employeeAddress, Date employeeDateOfBirth, Date employeeHireDate, LibraryCard teacherCard, Role staff, Gender gender) {
+        super(employeeName, employeeId, employeePhoneNumber, employeeAddress, employeeDateOfBirth, employeeHireDate);
         this.teacherCard = teacherCard;
-        this.employeeHireDate = employeeHireDate;
         this.staff = staff;
         this.gender = gender;
     }
@@ -22,9 +21,8 @@ public class Teacher {
     public String toString() {
         return "Teacher{" +
                 "teacherCard=" + teacherCard +
-                ", employeeHireDate=" + employeeHireDate +
                 ", staff=" + staff +
                 ", gender=" + gender +
-                '}';
+                "} " + super.toString();
     }
 }

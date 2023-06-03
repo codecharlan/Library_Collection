@@ -23,11 +23,10 @@ public class BookLibraryApplication {
         Date teacherReturnBookDate = new Date(3, 06, 2023);
         LibraryCard studentCard = new LibraryCard("DecaSchool", "Adaoma", "A12345", "rtobe@gmail.com", "07034567890", studentTakeBookDate, studentReturnBookDate);
         LibraryCard teacherCard = new LibraryCard("DecaSchool", "Ifeoma", "A67890", "ifyone@gmail.com", "07034466772", teacherTakeBookDate, teacherReturnBookDate);
-//        Book book = new Book("Properties of Matter", "A.A.Juliet", "J.J Thaut Ltd", 000 - 2345, "Science");
         Book book = Book.getInstance();
         Students seniorStudent = new Students(studentCard, Role.SENIOR_STUDENT, Gender.FEMALE);
         Students juniorStudent = new Students(studentCard, Role.JUNIOR_STUDENT, Gender.MALE);
-        Teacher teacher = new Teacher(teacherCard, employeeHireDate, Role.TEACHER, Gender.FEMALE);
+        Teacher teacher = new Teacher("Bose","AS5654", "08094563263", "no 22, Portland Rd",new Date(23,04,1993),employeeHireDate, teacherCard, Role.TEACHER, Gender.FEMALE);
         Librarian librarian = new Librarian("Tommy", "R345678", "08086754356", "No 3, AnchorWay", new Date(4, 6, 1997), new Date(5, 7, 2023));
         StudentImpl studentimpl = new StudentImpl();
         TeacherImpl teacherimpl = new TeacherImpl();
