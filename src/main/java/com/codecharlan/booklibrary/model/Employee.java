@@ -1,4 +1,4 @@
-package com.codecharlan.booklibrary;
+package com.codecharlan.booklibrary.model;
 
 import com.codecharlan.booklibrary.subclass.Date;
 

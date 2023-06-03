@@ -1,6 +1,7 @@
-package com.codecharlan.booklibrary;
+package com.codecharlan.booklibrary.model;
 
 import com.codecharlan.booklibrary.enums.Role;
+import com.codecharlan.booklibrary.model.Employee;
 import com.codecharlan.booklibrary.repository.Book;
 import com.codecharlan.booklibrary.repository.Library;
 import com.codecharlan.booklibrary.subclass.Date;
@@ -22,7 +23,6 @@ public class Librarian extends Employee {
             return bookTitle + " has been added to the Library";
         }
     }
-
     public String givePriorityBook(Role role) {
         if (role == Role.LIBRARIAN) {
             if (book.getPriorityQueue().isEmpty()) {

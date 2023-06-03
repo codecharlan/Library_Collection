@@ -1,8 +1,10 @@
-package com.codecharlan.booklibrary.service;
+package com.codecharlan.booklibrary.service.serviceImpl;
 
 import com.codecharlan.booklibrary.enums.Role;
 import com.codecharlan.booklibrary.repository.Book;
 import com.codecharlan.booklibrary.repository.Library;
+import com.codecharlan.booklibrary.service.PriorityQueueRequest;
+import com.codecharlan.booklibrary.service.QueueRequest;
 import com.codecharlan.booklibrary.subclass.LibraryCard;
 
 public class TeacherImpl implements PriorityQueueRequest, QueueRequest {
@@ -23,8 +25,8 @@ public class TeacherImpl implements PriorityQueueRequest, QueueRequest {
     @Override
     public String queueRequestBook(LibraryCard teacherCard, Book bookTitle, Role role) {
         if (library.getBooksAvailable().containsKey(String.valueOf(bookTitle)) && library.getBooksAvailable().get(String.valueOf(bookTitle)) > 0) {
-            switch (role) {
-                case TEACHER -> book.getQueue().offer(bookTitle);
+            if (role == Role.TEACHER) {
+                book.getQueue().offer(bookTitle);
             }
             library.getBooksAvailable().put(String.valueOf(bookTitle), library.getBooksAvailable().get(String.valueOf(bookTitle)) - 1);
 
@@ -41,7 +43,6 @@ public class TeacherImpl implements PriorityQueueRequest, QueueRequest {
                 ", book=" + book +
                 '}';
     }
-
 
 }
 

@@ -1,17 +1,15 @@
 package com.codecharlan.booklibrary.service;
 
-import com.codecharlan.booklibrary.Librarian;
+import com.codecharlan.booklibrary.model.Librarian;
 import com.codecharlan.booklibrary.enums.Role;
 import com.codecharlan.booklibrary.repository.Book;
 import com.codecharlan.booklibrary.repository.Library;
+import com.codecharlan.booklibrary.service.serviceImpl.StudentImpl;
 import com.codecharlan.booklibrary.subclass.Date;
 import com.codecharlan.booklibrary.subclass.LibraryCard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class StudentImplTest {
     StudentImpl studentimpl;

@@ -1,8 +1,10 @@
-package com.codecharlan.booklibrary.service;
+package com.codecharlan.booklibrary.service.serviceImpl;
 
 import com.codecharlan.booklibrary.enums.Role;
 import com.codecharlan.booklibrary.repository.Book;
 import com.codecharlan.booklibrary.repository.Library;
+import com.codecharlan.booklibrary.service.PriorityQueueRequest;
+import com.codecharlan.booklibrary.service.QueueRequest;
 import com.codecharlan.booklibrary.subclass.LibraryCard;
 
 import java.util.Objects;

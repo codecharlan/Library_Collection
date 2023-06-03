@@ -2,10 +2,13 @@ package com.codecharlan.booklibrary;
 
 import com.codecharlan.booklibrary.enums.Gender;
 import com.codecharlan.booklibrary.enums.Role;
+import com.codecharlan.booklibrary.model.Librarian;
+import com.codecharlan.booklibrary.model.Students;
+import com.codecharlan.booklibrary.model.Teacher;
 import com.codecharlan.booklibrary.repository.Book;
 import com.codecharlan.booklibrary.repository.Library;
-import com.codecharlan.booklibrary.service.StudentImpl;
-import com.codecharlan.booklibrary.service.TeacherImpl;
+import com.codecharlan.booklibrary.service.serviceImpl.StudentImpl;
+import com.codecharlan.booklibrary.service.serviceImpl.TeacherImpl;
 import com.codecharlan.booklibrary.subclass.Date;
 import com.codecharlan.booklibrary.subclass.LibraryCard;
 

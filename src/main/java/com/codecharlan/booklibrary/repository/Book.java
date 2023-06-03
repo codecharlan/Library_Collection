@@ -12,10 +12,11 @@ public class Book implements Comparable<Book> {
     private String publisher;
     private Integer ISBN;
     private String category;
-    private Role role;
-    private Integer priority;
     private Queue<Book> queue;
     private PriorityQueue<Book> priorityQueue;
+    private Role role;
+    private Integer priority;
+
 
     public static Book instance;
 
@@ -26,15 +27,10 @@ public class Book implements Comparable<Book> {
         return instance;
     }
 
-    public Book(Role role) {
-        this.role = role;
-    }
-
     public Book(Role role, Integer priority) {
         this.role = role;
         this.priority = priority;
     }
-
 
     public Book(String bookTitle, String author, String publisher, Integer ISBN, String category) {
         this.bookTitle = bookTitle;
@@ -43,7 +39,7 @@ public class Book implements Comparable<Book> {
         this.ISBN = ISBN;
         this.category = category;
         this.queue = new LinkedList<>();
-        priorityQueue = new PriorityQueue<>();
+        this.priorityQueue = new PriorityQueue<>();
     }
 
     public Role getRole() {

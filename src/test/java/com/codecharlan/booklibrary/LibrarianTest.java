@@ -1,14 +1,13 @@
 package com.codecharlan.booklibrary;
 
 import com.codecharlan.booklibrary.enums.Role;
+import com.codecharlan.booklibrary.model.Librarian;
 import com.codecharlan.booklibrary.repository.Book;
 import com.codecharlan.booklibrary.repository.Library;
 import com.codecharlan.booklibrary.subclass.Date;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class LibrarianTest {
     Library library;
